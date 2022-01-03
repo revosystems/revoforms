@@ -7,11 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: FormViewController {
 
     override func viewDidLoad() {
+        
+        FormAppearance.shared.mainLabelFont = UIFont.systemFont(ofSize: 12)
+        FormAppearance.shared.mainLabelColor = .red
+        
+        FormAppearance.shared.detailLabelFont = UIFont.systemFont(ofSize: 12)
+        FormAppearance.shared.detailLabelColor = .blue
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.sections = [
+            Section([
+                InfoRow("Title", detail: "Detail")
+            ])
+        ]
     }
 
 

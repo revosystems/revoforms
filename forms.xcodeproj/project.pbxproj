@@ -16,6 +16,12 @@
 		EAE7439A27830F8600BB58E4 /* formsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7439927830F8600BB58E4 /* formsTests.swift */; };
 		EAE743A427830F8600BB58E4 /* formsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743A327830F8600BB58E4 /* formsUITests.swift */; };
 		EAE743A627830F8600BB58E4 /* formsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743A527830F8600BB58E4 /* formsUITestsLaunchTests.swift */; };
+		EAE743B427830F9700BB58E4 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B327830F9700BB58E4 /* FormViewController.swift */; };
+		EAE743B727830FB100BB58E4 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B627830FB100BB58E4 /* Section.swift */; };
+		EAE743B927830FB600BB58E4 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B827830FB600BB58E4 /* Row.swift */; };
+		EAE743BC2783111200BB58E4 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BB2783111200BB58E4 /* InfoRow.swift */; };
+		EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BE2783123000BB58E4 /* FormCell.swift */; };
+		EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C0278315DD00BB58E4 /* FormAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		EAE7439F27830F8600BB58E4 /* formsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = formsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE743A327830F8600BB58E4 /* formsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formsUITests.swift; sourceTree = "<group>"; };
 		EAE743A527830F8600BB58E4 /* formsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EAE743B327830F9700BB58E4 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		EAE743B627830FB100BB58E4 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		EAE743B827830FB600BB58E4 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		EAE743BB2783111200BB58E4 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		EAE743BE2783123000BB58E4 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
+		EAE743C0278315DD00BB58E4 /* FormAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,7 @@
 		EAE7438127830F8500BB58E4 /* forms */ = {
 			isa = PBXGroup;
 			children = (
+				EAE743B227830F8D00BB58E4 /* lib */,
 				EAE7438227830F8500BB58E4 /* AppDelegate.swift */,
 				EAE7438427830F8500BB58E4 /* SceneDelegate.swift */,
 				EAE7438627830F8500BB58E4 /* ViewController.swift */,
@@ -125,6 +138,35 @@
 				EAE743A527830F8600BB58E4 /* formsUITestsLaunchTests.swift */,
 			);
 			path = formsUITests;
+			sourceTree = "<group>";
+		};
+		EAE743B227830F8D00BB58E4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				EAE743BD2783122600BB58E4 /* Cells */,
+				EAE743BA2783110700BB58E4 /* Rows */,
+				EAE743B327830F9700BB58E4 /* FormViewController.swift */,
+				EAE743B627830FB100BB58E4 /* Section.swift */,
+				EAE743B827830FB600BB58E4 /* Row.swift */,
+				EAE743C0278315DD00BB58E4 /* FormAppearance.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		EAE743BA2783110700BB58E4 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				EAE743BB2783111200BB58E4 /* InfoRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		EAE743BD2783122600BB58E4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EAE743BE2783123000BB58E4 /* FormCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE743B727830FB100BB58E4 /* Section.swift in Sources */,
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
 				EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */,
+				EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */,
+				EAE743B427830F9700BB58E4 /* FormViewController.swift in Sources */,
+				EAE743BC2783111200BB58E4 /* InfoRow.swift in Sources */,
+				EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */,
+				EAE743B927830FB600BB58E4 /* Row.swift in Sources */,
 				EAE7438527830F8500BB58E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
