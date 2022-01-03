@@ -19,8 +19,8 @@ public class SwitchRow : Row {
     }
     
     func createSwitchView() -> UISwitch {
-        let check = UISwitch()
-        return check
+        let component = UISwitch()
+        return component
     }
     
     func addComponent(cell:UITableViewCell){

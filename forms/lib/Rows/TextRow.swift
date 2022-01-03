@@ -21,18 +21,18 @@ public class TextRow : Row {
     }
     
     func createComponent() -> UITextField {
-        let field = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        field.placeholder = placeholder
+        let component = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        component.placeholder = placeholder
         
         if let detailLabelFont = appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
-            field.font = detailLabelFont
+            component.font = detailLabelFont
         }
         
         if let detailLabelColor = appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
-            field.textColor = detailLabelColor
+            component.textColor = detailLabelColor
         }
         
-        return field
+        return component
     }
     
     func addComponent(cell:UITableViewCell){

@@ -3,7 +3,7 @@ import UIKit
 
 public class FormCell : UITableViewCell {
         
-    var row:Row?
+    var row:Row!
     
     // MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -17,7 +17,11 @@ public class FormCell : UITableViewCell {
     // MARK:- Setup
     func setup(_ row:Row) -> Self {
         self.row              = row
-        textLabel?.text       = row.title
+        textLabel?.text       = (row.appearance ?? FormAppearance.shared).addNewLinesToTitle(row.title)
+        
+        textLabel?.numberOfLines = 0        
+        //textLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
         detailTextLabel?.text = row.detail
         
         selectionStyle   = .none
@@ -30,19 +34,19 @@ public class FormCell : UITableViewCell {
     // MARK:- Appearance
     func appearance(){
         
-        if let mainLabelFont = row?.appearance?.mainLabelFont ?? FormAppearance.shared.mainLabelFont {
+        if let mainLabelFont = row.appearance?.mainLabelFont ?? FormAppearance.shared.mainLabelFont {
             textLabel?.font = mainLabelFont
         }
         
-        if let mainLabelColor = row?.appearance?.mainLabelColor ?? FormAppearance.shared.mainLabelColor {
+        if let mainLabelColor = row.appearance?.mainLabelColor ?? FormAppearance.shared.mainLabelColor {
             textLabel?.textColor = mainLabelColor
         }
         
-        if let detailLabelFont = row?.appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
+        if let detailLabelFont = row.appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
             detailTextLabel?.font = detailLabelFont
         }
         
-        if let detailLabelColor = row?.appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
+        if let detailLabelColor = row.appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
             detailTextLabel?.textColor = detailLabelColor
         }
     }

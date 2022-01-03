@@ -24,6 +24,7 @@
 		EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C0278315DD00BB58E4 /* FormAppearance.swift */; };
 		EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C227831CD300BB58E4 /* SwitchRow.swift */; };
 		EAE743C527831DDF00BB58E4 /* SelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C427831DDF00BB58E4 /* SelectRow.swift */; };
+		EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C6278321DF00BB58E4 /* StepperRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EAE743C0278315DD00BB58E4 /* FormAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAppearance.swift; sourceTree = "<group>"; };
 		EAE743C227831CD300BB58E4 /* SwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
 		EAE743C427831DDF00BB58E4 /* SelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRow.swift; sourceTree = "<group>"; };
+		EAE743C6278321DF00BB58E4 /* StepperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				EAE743BB2783111200BB58E4 /* TextRow.swift */,
 				EAE743C227831CD300BB58E4 /* SwitchRow.swift */,
 				EAE743C427831DDF00BB58E4 /* SelectRow.swift */,
+				EAE743C6278321DF00BB58E4 /* StepperRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */,
 				EAE743B727830FB100BB58E4 /* Section.swift in Sources */,
+				EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */,
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
 				EAE743C527831DDF00BB58E4 /* SelectRow.swift in Sources */,
 				EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */,

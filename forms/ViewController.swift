@@ -26,7 +26,8 @@ class ViewController: FormViewController {
             ]),
             Section("Second Section", rows:[
                 SwitchRow("Active"),
-                SelectRow("This can be selected")
+                SelectRow("This can be selected"),
+                StepperRow("This is a long title text that should be cutted in just two lines")
             ])
         ]
     }
