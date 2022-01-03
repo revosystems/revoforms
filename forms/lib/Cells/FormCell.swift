@@ -4,9 +4,7 @@ import UIKit
 public class FormCell : UITableViewCell {
         
     var row:Row?
-    
-    var descriptionLabel:UILabel?
-    
+        
     // MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
@@ -25,30 +23,21 @@ public class FormCell : UITableViewCell {
         //textLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         detailTextLabel?.text = row.detail
-            
+    
+        appearance()
         addDescription()
         
         selectionStyle   = .none
         accessoryType    = .none
-        appearance()
+        
         
         return self
     }
     
     func addDescription(){
-        descriptionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        descriptionLabel!.text = row?.description
-        addSubview(descriptionLabel!)
-        
-        descriptionLabel?.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel?.leadingAnchor.constraint(equalTo: textLabel!.leadingAnchor).isActive = true
-        
-        descriptionLabel?.topAnchor.constraint(equalTo: textLabel!.bottomAnchor, constant: -4).isActive = true
-        //descriptionLabel?.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10).isActive = true
-        //descriptionLabel?.widthAnchor.constraint(equalTo: textLabel!.widthAnchor).isActive = true
-        descriptionLabel?.heightAnchor.constraint(equalToConstant:21).isActive = true
-        descriptionLabel?.textAlignment = .left
-        
+        if let desc = row?.description {
+            highlightBoldWordAtLabel(textViewTotransform: textLabel!, completeText: ((textLabel?.text ?? "") + "\n" + desc), wordToBold: desc)
+        }
     }
         
     // MARK:- Appearance
@@ -68,15 +57,39 @@ public class FormCell : UITableViewCell {
         
         if let detailLabelColor = row?.appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
             detailTextLabel?.textColor = detailLabelColor
-        }
-        
-        if let descriptionLabelFont = row?.appearance?.descriptionLabelFont ?? FormAppearance.shared.descriptionLabelFont {
-            descriptionLabel?.font = descriptionLabelFont
-        }
-        
-        if let descriptionLabelColor = row?.appearance?.descriptionLabelColor ?? FormAppearance.shared.descriptionLabelColor {
-            descriptionLabel?.textColor = descriptionLabelColor
-        }
+        }                
     }
     
+    func highlightBoldWordAtLabel(textViewTotransform: UILabel, completeText: String, wordToBold: String){
+        textViewTotransform.text = completeText
+        
+                
+        let attribute = NSMutableAttributedString.init(string: completeText)
+    
+        let titleRange = (completeText as NSString).range(of: row?.title ?? "")
+        let titleFont  = row?.appearance?.mainLabelFont ?? FormAppearance.shared.mainLabelFont ?? UIFont.systemFont(ofSize: 14)
+        let titleColor = row?.appearance?.mainLabelColor ?? FormAppearance.shared.mainLabelColor ?? UIColor.lightGray
+        
+        attribute.addAttribute(NSAttributedString.Key.font, value: titleFont, range: titleRange)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: titleColor , range: titleRange)
+    
+        let descRange = (completeText as NSString).range(of: wordToBold)
+        let descFont  = row?.appearance?.descriptionLabelFont ?? FormAppearance.shared.descriptionLabelFont ?? UIFont.systemFont(ofSize: 13)
+        let descColor = row?.appearance?.descriptionLabelColor ?? FormAppearance.shared.descriptionLabelColor ?? UIColor.lightGray
+        
+        attribute.addAttribute(NSAttributedString.Key.font, value: descFont, range: descRange)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: descColor ,range: descRange)
+        textViewTotransform.attributedText = attribute
+    }
+    
+}
+
+
+public extension String {
+    func setColor(_ color: UIColor, ofSubstring substring: String) -> NSMutableAttributedString {
+        let range = (self as NSString).range(of: substring)
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        return attributedString
+    }
 }

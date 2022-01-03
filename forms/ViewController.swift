@@ -9,7 +9,7 @@
 // [ ] DateRow
 // [ ] TimeRow
 // [ ] ButtonRow
-// [ ] Description
+// [x] Description
 // [ ] Validation
 // [ ] Fix TextAreaRow
 
@@ -48,7 +48,7 @@ class ViewController: FormViewController {
             ]),
             Section("Third Section", rows:[
                 SelectRow("Color", options:["blue", "red", "yellow"]),
-                TextAreaRow("Notes", description: "Here goes the notes"),
+                //TextAreaRow("Notes", description: "Here goes the notes"),
             ])
 
         ]
