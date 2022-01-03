@@ -12,15 +12,21 @@ class ViewController: FormViewController {
     override func viewDidLoad() {
         
         FormAppearance.shared.mainLabelFont = UIFont.systemFont(ofSize: 12)
-        FormAppearance.shared.mainLabelColor = .red
+        FormAppearance.shared.mainLabelColor = .darkGray
         
         FormAppearance.shared.detailLabelFont = UIFont.systemFont(ofSize: 12)
-        FormAppearance.shared.detailLabelColor = .blue
-        
+        FormAppearance.shared.detailLabelColor = .lightGray
+    
+                
         super.viewDidLoad()
         self.sections = [
-            Section([
-                InfoRow("Title", detail: "Detail")
+            Section(rows:[
+                Row("Info Row",     detail: "Here goes the info"),
+                TextRow("Text Row", placeholder: "Enter the text")
+            ]),
+            Section("Second Section", rows:[
+                SwitchRow("Active"),
+                SelectRow("This can be selected")
             ])
         ]
     }

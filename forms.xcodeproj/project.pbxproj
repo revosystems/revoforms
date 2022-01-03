@@ -19,9 +19,11 @@
 		EAE743B427830F9700BB58E4 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B327830F9700BB58E4 /* FormViewController.swift */; };
 		EAE743B727830FB100BB58E4 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B627830FB100BB58E4 /* Section.swift */; };
 		EAE743B927830FB600BB58E4 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743B827830FB600BB58E4 /* Row.swift */; };
-		EAE743BC2783111200BB58E4 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BB2783111200BB58E4 /* InfoRow.swift */; };
+		EAE743BC2783111200BB58E4 /* TextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BB2783111200BB58E4 /* TextRow.swift */; };
 		EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BE2783123000BB58E4 /* FormCell.swift */; };
 		EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C0278315DD00BB58E4 /* FormAppearance.swift */; };
+		EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C227831CD300BB58E4 /* SwitchRow.swift */; };
+		EAE743C527831DDF00BB58E4 /* SelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C427831DDF00BB58E4 /* SelectRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +60,11 @@
 		EAE743B327830F9700BB58E4 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		EAE743B627830FB100BB58E4 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		EAE743B827830FB600BB58E4 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
-		EAE743BB2783111200BB58E4 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		EAE743BB2783111200BB58E4 /* TextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRow.swift; sourceTree = "<group>"; };
 		EAE743BE2783123000BB58E4 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
 		EAE743C0278315DD00BB58E4 /* FormAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAppearance.swift; sourceTree = "<group>"; };
+		EAE743C227831CD300BB58E4 /* SwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
+		EAE743C427831DDF00BB58E4 /* SelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +160,9 @@
 		EAE743BA2783110700BB58E4 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
-				EAE743BB2783111200BB58E4 /* InfoRow.swift */,
+				EAE743BB2783111200BB58E4 /* TextRow.swift */,
+				EAE743C227831CD300BB58E4 /* SwitchRow.swift */,
+				EAE743C427831DDF00BB58E4 /* SelectRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -300,12 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */,
 				EAE743B727830FB100BB58E4 /* Section.swift in Sources */,
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
+				EAE743C527831DDF00BB58E4 /* SelectRow.swift in Sources */,
 				EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */,
 				EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */,
 				EAE743B427830F9700BB58E4 /* FormViewController.swift in Sources */,
-				EAE743BC2783111200BB58E4 /* InfoRow.swift in Sources */,
+				EAE743BC2783111200BB58E4 /* TextRow.swift in Sources */,
 				EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */,
 				EAE743B927830FB600BB58E4 /* Row.swift in Sources */,
 				EAE7438527830F8500BB58E4 /* SceneDelegate.swift in Sources */,

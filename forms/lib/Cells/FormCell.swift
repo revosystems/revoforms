@@ -4,7 +4,6 @@ import UIKit
 public class FormCell : UITableViewCell {
         
     var row:Row?
-    var customAppearance:FormAppearance?
     
     // MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -21,28 +20,29 @@ public class FormCell : UITableViewCell {
         textLabel?.text       = row.title
         detailTextLabel?.text = row.detail
         
-        selectionStyle        = .none
+        selectionStyle   = .none
+        accessoryType    = .none
         appearance()
         
         return self
     }
-    
+        
     // MARK:- Appearance
     func appearance(){
         
-        if let mainLabelFont = customAppearance?.mainLabelFont ?? FormAppearance.shared.mainLabelFont {
+        if let mainLabelFont = row?.appearance?.mainLabelFont ?? FormAppearance.shared.mainLabelFont {
             textLabel?.font = mainLabelFont
         }
         
-        if let mainLabelColor = customAppearance?.mainLabelColor ?? FormAppearance.shared.mainLabelColor {
+        if let mainLabelColor = row?.appearance?.mainLabelColor ?? FormAppearance.shared.mainLabelColor {
             textLabel?.textColor = mainLabelColor
         }
         
-        if let detailLabelFont = customAppearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
+        if let detailLabelFont = row?.appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
             detailTextLabel?.font = detailLabelFont
         }
         
-        if let detailLabelColor = customAppearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
+        if let detailLabelColor = row?.appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
             detailTextLabel?.textColor = detailLabelColor
         }
     }
