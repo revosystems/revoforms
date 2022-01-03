@@ -4,10 +4,14 @@ import UIKit
 public class SwitchRow : Row {
     
     var component:UISwitch!
+    var value: Bool {
+        component.isOn
+    }
     
-    init(_ title:String){
-        super.init(title)
+    init(_ title:String, description:String? = nil, value:Bool = false){
+        super.init(title, description: description)
         component = createSwitchView()
+        component.isOn = value
     }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -24,14 +28,11 @@ public class SwitchRow : Row {
     }
     
     func addComponent(cell:UITableViewCell){
-        cell.contentView.addSubview(component)
+        cell.addSubview(component)
         
         component.translatesAutoresizingMaskIntoConstraints = false
-        component.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -20).isActive = true
-        component.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
-        //component.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        //component.heightAnchor.constraint(equalToConstant: 21).isActive = true
-        //component.textAlignment = .right
+        component.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20).isActive = true
+        component.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
     }
     
 }

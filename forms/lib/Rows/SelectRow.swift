@@ -1,20 +1,48 @@
-import Foundation
 import UIKit
 
-class SelectRow : Row {
+class SelectRow : Row, SelectControllerDelegate {
     
-    var selected:Bool = false
+    var selectedOption:Int = 0
+    let options:[String]
+    var cell:UITableViewCell?
+    
+    var value: Int {
+        selectedOption
+    }
+    
+    init(_ title:String, description:String? = nil, options:[String], value:Int = 0){
+        self.options = options
+        self.selectedOption = value
+        super.init(title, description: description)
+    }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
+        cell.accessoryType = .disclosureIndicator
         
-        cell.accessoryType = selected ? UITableViewCell.AccessoryType.checkmark : UITableViewCell.AccessoryType.none
-        
+        cell.detailTextLabel?.text = options[selectedOption]
+        self.cell = cell
         return cell
     }
     
-    override func onSelected() -> Bool{
-        selected = !selected
-        return true
-    }    
+    override func onSelected(_ viewController:UIViewController) -> Bool {
+        
+        let vc              = SelectController(style: .grouped)
+        vc.options          = options
+        vc.selectedOption   = selectedOption
+        vc.title            = title
+        vc.delegate         = self
+        if let nav = viewController.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }else{
+            viewController.present(vc, animated: true)
+        }
+        
+        return false
+    }
+    
+    func selectController(onOptionSelected option: Int) {
+        selectedOption = option
+        cell?.detailTextLabel?.text = options[selectedOption]
+    }
 }

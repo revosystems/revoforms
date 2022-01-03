@@ -33,13 +33,13 @@ public class FormViewController : UITableViewController {
     
     //MARK: DELEGATE
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if sections[indexPath.section].rows[indexPath.row].onSelected() {
+        if sections[indexPath.section].rows[indexPath.row].onSelected(self) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
     public override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if sections[indexPath.section].rows[indexPath.row].onDeselected() {
+        if sections[indexPath.section].rows[indexPath.row].onDeselected(self) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }

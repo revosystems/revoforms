@@ -7,11 +7,12 @@ public class Row {
     var appearance:FormAppearance?
     
     var title:String
+    var description:String?
     var detail:String?
     
-    init(_ title:String, detail:String? = nil){
+    init(_ title:String, description:String? = nil){
         self.title = title
-        self.detail = detail
+        self.description = description
     }
     
     func cell(_ tableView:UITableView, indexPath:IndexPath) -> UITableViewCell {
@@ -19,11 +20,11 @@ public class Row {
         return cell.setup(self)
     }
     
-    func onSelected() -> Bool{
+    func onSelected(_ viewController:UIViewController) -> Bool{
         false
     }
     
-    func onDeselected() -> Bool {
+    func onDeselected(_ viewController:UIViewController) -> Bool {
         false
     }
 }

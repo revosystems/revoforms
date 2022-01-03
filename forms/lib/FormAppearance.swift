@@ -1,4 +1,5 @@
 import UIKit
+import RevoFoundation
 
 public class FormAppearance
 {
@@ -12,6 +13,9 @@ public class FormAppearance
     var detailLabelFont:UIFont?
     var detailLabelColor:UIColor?
     
+    var descriptionLabelFont:UIFont?
+    var descriptionLabelColor:UIColor?
+    
     var maxTitleLength = 35
     
     func addNewLinesToTitle(_ string:String) -> String {
@@ -24,8 +28,8 @@ public class FormAppearance
                 newTitle += "\n"
                 count = 0
             }
-            newTitle += " " + word
+            newTitle += word + " "
         }
-        return newTitle
+        return newTitle.trim()
     }
 }

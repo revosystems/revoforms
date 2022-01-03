@@ -5,10 +5,14 @@ public class StepperRow : Row {
     
     var component:UIStepper!
     var label:UILabel!
+    var value: Int {
+        Int(component.value)
+    }
     
-    init(_ title:String){
-        super.init(title)
+    init(_ title:String, description:String? = nil, value:Int = 0){
+        super.init(title, description: description)
         component = createComponent()
+        component.value = Double(value)
     }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -39,15 +43,15 @@ public class StepperRow : Row {
     }
     
     func addComponent(cell:UITableViewCell){
-        cell.contentView.addSubview(component)
+        cell.addSubview(component)
         component.translatesAutoresizingMaskIntoConstraints = false
-        component.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -20).isActive = true
-        component.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        component.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20).isActive = true
+        component.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         //component.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //component.heightAnchor.constraint(equalToConstant: 21).isActive = true
         //component.textAlignment = .right
         
-        cell.contentView.addSubview(label)
+        cell.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.trailingAnchor.constraint(equalTo: component.leadingAnchor, constant: -8).isActive = true
         label.centerYAnchor.constraint(equalTo: component.centerYAnchor).isActive = true

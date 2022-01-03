@@ -1,20 +1,19 @@
 import Foundation
 import UIKit
 
-public class TextRow : Row {
+public class TextAreaRow : Row {
     
-    var placeholder : String
-    var component:UITextField!
+    var component:UITextView!
     
     var value: String? {
         component.text
     }
     
-    init(_ title:String, description:String? = nil, placeholder:String, value:String? = nil){
-        self.placeholder = placeholder
+    init(_ title:String, description:String? = nil, value:String? = nil){
         super.init(title, description: description)
         component = createComponent()
         component.text = value
+        
     }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -25,9 +24,9 @@ public class TextRow : Row {
         return cell
     }
     
-    func createComponent() -> UITextField {
-        let component = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        component.placeholder = placeholder
+    func createComponent() -> UITextView {
+        let component = UITextView(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        //component.placeholder = placeholder
         
         if let detailLabelFont = appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
             component.font = detailLabelFont
@@ -42,15 +41,24 @@ public class TextRow : Row {
     
     func addComponent(cell:UITableViewCell){
         cell.addSubview(component)
+                               
+        component.text = "Here goes some text"
         
         component.translatesAutoresizingMaskIntoConstraints = false
+        component.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20).isActive = true
         component.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20).isActive = true
-        component.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-        component.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        component.heightAnchor.constraint(equalToConstant: 21).isActive = true
-        component.textAlignment = .right
+        
+        component.topAnchor.constraint(equalTo: cell.textLabel!.bottomAnchor, constant: -4).isActive = true
+        //component.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        component.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 4).isActive = true
+        
+        component.textAlignment = .left
     }
     
     
+    func removeAllConstraints(_ view:UIView) {
+        view.removeConstraints(view.constraints)
+    }
     
 }
