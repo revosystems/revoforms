@@ -21,10 +21,11 @@ public class StepperRow : Row {
     
     func createComponent() -> UIStepper {
         let component = UIStepper()
+        component.addTarget(self, action: #selector(onChanged), for: .valueChanged)
 
         
         label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 21))
-        label.text = "1"
+        onChanged()
         
         if let detailLabelFont = appearance?.detailLabelFont ?? FormAppearance.shared.detailLabelFont {
             label.font = detailLabelFont
@@ -53,6 +54,10 @@ public class StepperRow : Row {
         label.widthAnchor.constraint(equalToConstant: 100).isActive = true
         label.heightAnchor.constraint(equalToConstant: 21).isActive = true
         label.textAlignment = .right
+    }
+    
+    @objc func onChanged(){
+        label.text = "\(Int(component?.value ?? 0))"
     }
     
     
