@@ -1,16 +1,8 @@
-//
-//  ViewController.swift
-//  forms
-//
-//  Created by Jordi Puigdellívol on 3/1/22.
-//
-
-
 // [ ] DateRow
 // [ ] TimeRow
 // [ ] ButtonRow
 // [x] Description
-// [ ] Validation
+// [x] Validation
 // [ ] Fix TextAreaRow
 
 import UIKit
@@ -39,7 +31,7 @@ class ViewController: FormViewController {
         self.sections = [
             Section(rows:[
                 InfoRow("Info Row", detail: "Here goes the info"),
-                TextRow("Text Row", placeholder: "Enter the text", value: "My text")
+                TextRow("Text Row", placeholder: "Enter the text", value: "My text").validation("required|length:3")
             ]),
             Section("Second Section", rows:[
                 SwitchRow("Active", description:"A nice switch"),

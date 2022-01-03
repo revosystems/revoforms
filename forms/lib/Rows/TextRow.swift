@@ -1,10 +1,12 @@
 import Foundation
 import UIKit
+import RevoValidation
 
 public class TextRow : Row {
     
     var placeholder : String
     var component:UITextField!
+    var validation:Validation?
     
     var value: String? {
         component.text
@@ -25,6 +27,16 @@ public class TextRow : Row {
         return cell
     }
     
+    func validation(_ rules: Rules?) -> Self {
+        if let rules = rules {
+            component.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 8))
+            component.rightView?.backgroundColor = .red
+            component.rightView?.circle()
+            validation = Validation(component, rules)
+        }
+        return self
+    }
+    
     func createComponent() -> UITextField {
         let component = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         component.placeholder = placeholder
@@ -36,6 +48,8 @@ public class TextRow : Row {
         if let detailLabelColor = appearance?.detailLabelColor ?? FormAppearance.shared.detailLabelColor {
             component.textColor = detailLabelColor
         }
+        
+        component.clearButtonMode = .whileEditing
         
         return component
     }

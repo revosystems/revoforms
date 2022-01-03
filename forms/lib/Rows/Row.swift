@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import RevoValidation
 
 public class Row {
  
@@ -9,6 +10,8 @@ public class Row {
     var title:String
     var description:String?
     var detail:String?
+    
+    var rules:Rules?
     
     init(_ title:String, description:String? = nil){
         self.title = title
