@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EXAMPLE / TUTORIAL: https://www.raywenderlich.com/5823-how-to-create-a-cocoapod-in-swift
 
 
@@ -21,24 +22,29 @@ Pod::Spec.new do |spec|
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.author             = { "Jordi Puigdellívol" => "jordi@gloobus.net" }
-  # Or just: spec.author    = "Jordi Puigdellívol"
-  # spec.authors            = { "Jordi Puigdellívol" => "jordi@gloobus.net" }
   spec.social_media_url   = "https://instagram.com/badchoice2"
 
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #  
-  # spec.platform     = :ios
-   #spec.platform     = :ios, "9.3"
+  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  spec.platform     = :ios, "11.3"
+  spec.static_framework = true
 
-  #  When using multiple platforms
-   spec.ios.deployment_target = "10.0"
-  # spec.osx.deployment_target = "10.7"
-  # spec.watchos.deployment_target = "2.0"
-  spec.tvos.deployment_target = "10.0"
-
-  spec.source       = { :git => "https://github.com/revosystems/revoforms.git", :tag => "0.0.1" }
-  spec.source_files  = "forms/lib/**/*.{swift}"#, "src/**/*.{h,m}"
+  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  spec.source       = { :git => "git@github.com:revosystems/revoforms.git", :tag => "0.0.1" }
 
 
-  spec.dependency "RevoValidation", "~> 0.0.5"
+  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  spec.source_files  = "forms/lib/**/*.{swift,h}"#, "src/**/*.{h,m}"
+  #spec.public_header_files = "forms/src/**/*.{h}"
+
+  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #  
+  #spec.resources = "printers/resources/**/*"
+
+  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #spec.xcconfig = { 'OTHER_SWIFT_FLAGS' => '-Xcc -Wno-error=non-modular-include-in-framework-module'}
+  #spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  #spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
+
+  spec.dependency 'RevoValidation', '~> 0.0.7'
 
 end

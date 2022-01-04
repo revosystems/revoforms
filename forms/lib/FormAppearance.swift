@@ -3,20 +3,20 @@ import RevoFoundation
 
 public class FormAppearance
 {
-    static var shared:FormAppearance = {
+    public static var shared:FormAppearance = {
         FormAppearance()
     }()
     
-    var mainLabelFont:UIFont?
-    var mainLabelColor:UIColor?
+    public var mainLabelFont:UIFont?
+    public var mainLabelColor:UIColor?
     
-    var detailLabelFont:UIFont?
-    var detailLabelColor:UIColor?
+    public var detailLabelFont:UIFont?
+    public var detailLabelColor:UIColor?
     
-    var descriptionLabelFont:UIFont?
-    var descriptionLabelColor:UIColor?
+    public var descriptionLabelFont:UIFont?
+    public var descriptionLabelColor:UIColor?
     
-    var maxTitleLength = 35
+    public var maxTitleLength = 35
     
     func addNewLinesToTitle(_ string:String) -> String {
         var count = 0

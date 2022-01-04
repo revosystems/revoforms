@@ -14,6 +14,7 @@
 		BBE99DBA278345CA00726E21 /* SelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE99DB9278345CA00726E21 /* SelectController.swift */; };
 		BBE99DBC278348FA00726E21 /* TextAreaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE99DBB278348FA00726E21 /* TextAreaRow.swift */; };
 		BBE99DBE278355D200726E21 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE99DBD278355D200726E21 /* InfoRow.swift */; };
+		EA1D93CA2784633800786B8A /* SelectDictRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1D93C92784633800786B8A /* SelectDictRow.swift */; };
 		EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7438227830F8500BB58E4 /* AppDelegate.swift */; };
 		EAE7438527830F8500BB58E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7438427830F8500BB58E4 /* SceneDelegate.swift */; };
 		EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7438627830F8500BB58E4 /* ViewController.swift */; };
@@ -65,6 +66,7 @@
 		BBE99DBB278348FA00726E21 /* TextAreaRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaRow.swift; sourceTree = "<group>"; };
 		BBE99DBD278355D200726E21 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		E4E1965B3D51FA88F7C26602 /* Pods-formsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formsTests.release.xcconfig"; path = "Target Support Files/Pods-formsTests/Pods-formsTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA1D93C92784633800786B8A /* SelectDictRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDictRow.swift; sourceTree = "<group>"; };
 		EAE7437F27830F8500BB58E4 /* forms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE7438227830F8500BB58E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE7438427830F8500BB58E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				BBE99DB62783447700726E21 /* SelectRow.swift */,
 				BBE99DBB278348FA00726E21 /* TextAreaRow.swift */,
 				BBE99DBD278355D200726E21 /* InfoRow.swift */,
+				EA1D93C92784633800786B8A /* SelectDictRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			files = (
 				EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */,
 				EAE743B727830FB100BB58E4 /* Section.swift in Sources */,
+				EA1D93CA2784633800786B8A /* SelectDictRow.swift in Sources */,
 				EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */,
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
 				EAE743C527831DDF00BB58E4 /* UselesSelectRow.swift in Sources */,

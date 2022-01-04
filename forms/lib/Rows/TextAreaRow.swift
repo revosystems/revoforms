@@ -4,12 +4,12 @@ import UIKit
 public class TextAreaRow : Row {
     
     var component:UITextView!
-    
-    var value: String? {
+
+    public var value: String? {
         component.text
     }
-    
-    init(_ title:String, description:String? = nil, value:String? = nil){
+
+    public init(_ title:String, description:String? = nil, value:String? = nil){
         super.init(title, description: description)
         component = createComponent()
         component.text = value
@@ -56,9 +56,15 @@ public class TextAreaRow : Row {
         component.textAlignment = .left
     }
     
-    
     func removeAllConstraints(_ view:UIView) {
         view.removeConstraints(view.constraints)
+    }
+    
+    //MARK: Binding
+    override public func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
     }
     
 }

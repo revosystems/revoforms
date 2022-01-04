@@ -4,11 +4,11 @@ import UIKit
 public class SwitchRow : Row {
     
     var component:UISwitch!
-    var value: Bool {
+    public var value: Bool {
         component.isOn
     }
-    
-    init(_ title:String, description:String? = nil, value:Bool = false){
+
+    public init(_ title:String, description:String? = nil, value:Bool = false){
         super.init(title, description: description)
         component = createSwitchView()
         component.isOn = value
@@ -18,6 +18,7 @@ public class SwitchRow : Row {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)
+        component.isOn = getBindingValue() as? Bool ?? false
         
         return cell
     }
@@ -35,4 +36,10 @@ public class SwitchRow : Row {
         component.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
     }
     
+    //MARK: Binding
+    override public func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
 }

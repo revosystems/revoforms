@@ -4,19 +4,39 @@ import UIKit
 // Inspiration:
 // https://github.com/xmartlabs/Eureka
 
-public class FormViewController : UITableViewController {
+open class FormViewController : UITableViewController {
     
-    var sections:[Section] = []
+    public var sections:[Section] = []
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "cell")
-        tableView.backgroundColor = .tertiarySystemGroupedBackground
+        if #available(iOS 13, *) {
+            tableView.backgroundColor = .tertiarySystemGroupedBackground
+        }
     }
     
     
+    /**
+        This function will update the model associated using the `bind` function in each row
+     */
+    public func updateBindings(){
+        sections.each { section in
+            section.rows.each { row in
+                row.updateBinding()
+            }
+        }
+    }
+    
+    func removeHiddenRows(){
+        sections.each{
+            $0.rows = $0.rows.reject { $0.hidden }
+        }
+    }
+    
     //MARK: DATASOURCE
     public override func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        removeHiddenRows()
+        return sections.count
     }
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
