@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # EXAMPLE / TUTORIAL: https://www.raywenderlich.com/5823-how-to-create-a-cocoapod-in-swift
 
 
