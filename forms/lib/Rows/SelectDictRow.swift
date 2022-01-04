@@ -21,6 +21,12 @@ public class SelectDictRow : Row, SelectControllerDelegate {
         super.init(title, description: description)
     }
 
+    public override func bind(_ object: NSObject, keyPath: String) -> Self {
+        super.bind(object, keyPath: keyPath)
+        selectedOption = getBindingValue() as? Int ?? 0
+        return self
+    }
+
     public func allowsNull(_ allowsNull:Bool = true) -> Self {
         self.allowsNull = allowsNull
         return self
@@ -29,14 +35,8 @@ public class SelectDictRow : Row, SelectControllerDelegate {
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
-        
-        selectedOption = getBindingValue() as? Int ?? 0
-        
-        if let option = selectedOption, let text = options[option] {
-            cell.detailTextLabel?.text = text
-        }else{
-            cell.detailTextLabel?.text = "--"
-        }
+
+        showSelectedOptionTo(cell)
         
         self.cell = cell
         return cell
@@ -49,7 +49,7 @@ public class SelectDictRow : Row, SelectControllerDelegate {
             vc.options.append("--")
         }
         if let option = selectedOption {
-            vc.selectedOption   = keysSorted.firstIndex(of: option)
+            vc.selectedOption = keysSorted.firstIndex(of: option)
         }
         vc.title            = title
         vc.delegate         = self
@@ -58,18 +58,23 @@ public class SelectDictRow : Row, SelectControllerDelegate {
         } else {
             viewController.present(vc, animated: true)
         }
-        
         return false
     }
     
     func selectController(onOptionSelected option: Int?) {
-        if let option = option {
-            selectedOption = keysSorted.contains(option) ? keysSorted[option] : nil
-        }else{
+        if let option = option, keysSorted.count > option {
+            selectedOption = keysSorted[option]
+        } else {
             selectedOption = nil
         }
+        showSelectedOptionTo(cell)
+    }
+
+    func showSelectedOptionTo(_ cell:UITableViewCell?){
         if let option = selectedOption, let text = options[option] {
             cell?.detailTextLabel?.text = text
+        } else {
+            cell?.detailTextLabel?.text = "--"
         }
     }
     

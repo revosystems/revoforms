@@ -33,6 +33,7 @@ public class Row {
     /**
         The keypath must be visible in objc to be able to get and set the value as it uses the `setValue(keypath)` and `getValue(keyPath)`
      */
+    @discardableResult
     public func bind(_ object:NSObject, keyPath:String) -> Self {
         bindObject  = object
         bindKeyPath = keyPath

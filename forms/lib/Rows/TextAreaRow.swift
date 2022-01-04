@@ -13,12 +13,12 @@ public class TextAreaRow : Row {
         super.init(title, description: description)
         component = createComponent()
         component.text = value
-        
     }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.cell(tableView, indexPath: indexPath)
-        
+        let cell = super.cell(tableView, indexPath: indexPath) as! FormCell
+
+        cell.component = component
         addComponent(cell: cell)
         
         return cell

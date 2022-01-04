@@ -18,12 +18,18 @@ public class TextRow : Row {
         component = createComponent()
         component.text = value
     }
-    
+
+    public override func bind(_ object: NSObject, keyPath: String) -> Self {
+        super.bind(object, keyPath: keyPath)
+        component.text = getBindingValue() as? String
+        return self
+    }
+
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)
-        component.text = getBindingValue() as? String
+
         
         return cell
     }

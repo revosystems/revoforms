@@ -4,6 +4,7 @@ import UIKit
 public class SwitchRow : Row {
     
     var component:UISwitch!
+
     public var value: Bool {
         component.isOn
     }
@@ -13,13 +14,16 @@ public class SwitchRow : Row {
         component = createSwitchView()
         component.isOn = value
     }
-    
+
+    public override func bind(_ object: NSObject, keyPath: String) -> Self {
+        super.bind(object, keyPath: keyPath)
+        return self
+    }
+
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.cell(tableView, indexPath: indexPath)
-        
+        let cell = super.cell(tableView, indexPath: indexPath) as! FormCell
+        cell.component = component
         addComponent(cell: cell)
-        component.isOn = getBindingValue() as? Bool ?? false
-        
         return cell
     }
     

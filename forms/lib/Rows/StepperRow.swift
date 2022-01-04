@@ -5,6 +5,7 @@ public class StepperRow : Row {
     
     var component:UIStepper!
     var label:UILabel!
+
     public var value: Int {
         Int(component.value)
     }
@@ -16,8 +17,8 @@ public class StepperRow : Row {
     }
     
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.cell(tableView, indexPath: indexPath)
-        
+        let cell = super.cell(tableView, indexPath: indexPath) as! FormCell
+
         addComponent(cell: cell)
         component.value = getBindingValue() as? Double ?? 0
         onChanged()

@@ -4,6 +4,7 @@ import UIKit
 public class FormCell : UITableViewCell {
         
     var row:Row?
+    var component:UIView?
         
     // MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -18,19 +19,18 @@ public class FormCell : UITableViewCell {
     func setup(_ row:Row) -> Self {
         self.row              = row
         textLabel?.text       = (row.appearance ?? FormAppearance.shared).addNewLinesToTitle(row.title)
-        
-        textLabel?.numberOfLines = 0        
+
+        textLabel?.numberOfLines = 0
         //textLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
         detailTextLabel?.text = row.detail
-    
+
         appearance()
         addDescription()
-        
+
         selectionStyle   = .none
         accessoryType    = .none
-        
-        
+        component?.removeFromSuperview()
+
         return self
     }
     
