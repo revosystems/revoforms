@@ -17,6 +17,7 @@ public class SwitchRow : Row {
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
+        component.isOn = getBindingValue() as? Bool ?? false
         return self
     }
 
