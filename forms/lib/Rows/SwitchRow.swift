@@ -18,6 +18,7 @@ public class SwitchRow : Row {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)
+        component.isOn = getBindingValue() as? Bool ?? false
         
         return cell
     }
@@ -35,4 +36,10 @@ public class SwitchRow : Row {
         component.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
     }
     
+    //MARK: Binding
+    override func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
 }

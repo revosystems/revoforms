@@ -65,5 +65,11 @@ public class StepperRow : Row {
     }
     
     
+    //MARK: Binding
+    override func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
     
 }

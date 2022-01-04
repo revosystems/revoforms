@@ -61,4 +61,11 @@ public class TextAreaRow : Row {
         view.removeConstraints(view.constraints)
     }
     
+    //MARK: Binding
+    override func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
+    
 }

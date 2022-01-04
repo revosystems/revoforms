@@ -14,6 +14,17 @@ public class FormViewController : UITableViewController {
     }
     
     
+    /**
+        This function will update the model associated using the `bind` function in each row
+     */
+    public func updateBindings(){
+        sections.each { section in
+            section.rows.each { row in
+                row.updateBinding()
+            }
+        }
+    }
+    
     //MARK: DATASOURCE
     public override func numberOfSections(in tableView: UITableView) -> Int {
         sections.count

@@ -23,6 +23,7 @@ public class TextRow : Row {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)
+        component.text = getBindingValue() as? String
         
         return cell
     }
@@ -65,6 +66,13 @@ public class TextRow : Row {
         component.textAlignment = .right
     }
     
+    
+    //MARK: Binding
+    override func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
     
     
 }

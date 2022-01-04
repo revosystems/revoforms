@@ -45,4 +45,11 @@ class SelectRow : Row, SelectControllerDelegate {
         selectedOption = option
         cell?.detailTextLabel?.text = options[selectedOption]
     }
+    
+    //MARK: Binding
+    override func updateBinding() {
+        if let object = bindObject, let keyPath = bindKeyPath {
+            object.setValue(value, forKey: keyPath)
+        }
+    }
 }
