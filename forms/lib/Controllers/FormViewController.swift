@@ -27,9 +27,16 @@ open class FormViewController : UITableViewController {
         }
     }
     
+    func removeHiddenRows(){
+        sections.each{
+            $0.rows = $0.rows.reject { $0.hidden }
+        }
+    }
+    
     //MARK: DATASOURCE
     public override func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        removeHiddenRows()
+        return sections.count
     }
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

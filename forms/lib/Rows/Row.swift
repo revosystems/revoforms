@@ -15,10 +15,17 @@ public class Row {
     
     var bindObject:NSObject?
     var bindKeyPath:String?
+    
+    var hidden:Bool = false
 
     public init(_ title:String, description:String? = nil){
         self.title = title
         self.description = description
+    }
+    
+    public func hidden(_ hidden:Bool = true) -> Self {
+        self.hidden = hidden
+        return self;
     }
     
 
