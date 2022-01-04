@@ -19,6 +19,8 @@ public class StepperRow : Row {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)
+        component.value = getBindingValue() as? Double ?? 0
+        onChanged()
         
         return cell
     }

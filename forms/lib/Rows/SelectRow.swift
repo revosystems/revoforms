@@ -4,7 +4,7 @@ class SelectRow : Row, SelectControllerDelegate {
     
     var selectedOption:Int = 0
     let options:[String]
-    var cell:UITableViewCell?
+    weak var cell:UITableViewCell?
     
     var value: Int {
         selectedOption
@@ -19,6 +19,8 @@ class SelectRow : Row, SelectControllerDelegate {
     override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
+        
+        selectedOption = getBindingValue() as? Int ?? 0
         
         cell.detailTextLabel?.text = options[selectedOption]
         self.cell = cell
