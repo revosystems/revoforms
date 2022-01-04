@@ -34,6 +34,6 @@ Pod::Spec.new do |spec|
   #spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 
-  spec.dependency 'RevoValidation', '~> 0.0.21'
+  spec.dependency 'RevoValidation', '~> 0.0.7'
 
 end

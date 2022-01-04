@@ -4,13 +4,15 @@ import UIKit
 // Inspiration:
 // https://github.com/xmartlabs/Eureka
 
-public class FormViewController : UITableViewController {
+open class FormViewController : UITableViewController {
     
-    var sections:[Section] = []
+    public var sections:[Section] = []
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "cell")
-        tableView.backgroundColor = .tertiarySystemGroupedBackground
+        if #available(iOS 13, *) {
+            tableView.backgroundColor = .tertiarySystemGroupedBackground
+        }
     }
     
     

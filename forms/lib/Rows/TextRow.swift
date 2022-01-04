@@ -7,12 +7,12 @@ public class TextRow : Row {
     var placeholder : String
     var component:UITextField!
     var validation:Validation?
-    
-    var value: String? {
+
+    public var value: String? {
         component.text
     }
     
-    init(_ title:String, description:String? = nil, placeholder:String, value:String? = nil){
+    public init(_ title:String, description:String? = nil, placeholder:String, value:String? = nil){
         self.placeholder = placeholder
         super.init(title, description: description)
         component = createComponent()
@@ -68,7 +68,7 @@ public class TextRow : Row {
     
     
     //MARK: Binding
-    override func updateBinding() {
+    override public func updateBinding() {
         if let object = bindObject, let keyPath = bindKeyPath {
             object.setValue(value, forKey: keyPath)
         }

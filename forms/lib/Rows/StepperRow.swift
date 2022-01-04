@@ -5,11 +5,11 @@ public class StepperRow : Row {
     
     var component:UIStepper!
     var label:UILabel!
-    var value: Int {
+    public var value: Int {
         Int(component.value)
     }
-    
-    init(_ title:String, description:String? = nil, value:Int = 0){
+
+    public init(_ title:String, description:String? = nil, value:Int = 0){
         super.init(title, description: description)
         component = createComponent()
         component.value = Double(value)
@@ -29,7 +29,6 @@ public class StepperRow : Row {
         let component = UIStepper()
         component.addTarget(self, action: #selector(onChanged), for: .valueChanged)
 
-        
         label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 21))
         onChanged()
         
@@ -68,7 +67,7 @@ public class StepperRow : Row {
     
     
     //MARK: Binding
-    override func updateBinding() {
+    override public func updateBinding() {
         if let object = bindObject, let keyPath = bindKeyPath {
             object.setValue(value, forKey: keyPath)
         }

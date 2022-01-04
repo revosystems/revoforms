@@ -2,22 +2,23 @@ import Foundation
 import UIKit
 
 protocol SelectControllerDelegate {
-    func selectController(onOptionSelected option:Int)
+    func selectController(onOptionSelected option:Int?)
 }
 
-class SelectController : UITableViewController {
+open class SelectController : UITableViewController {
     
     var options:[String] = []
-    var selectedOption:Int = 0
+    var selectedOption:Int?
     var delegate:SelectControllerDelegate?
-    
-    
-    public override func viewDidLoad() {
+
+    open override func viewDidLoad() {
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "cell")
-        tableView.backgroundColor = .tertiarySystemGroupedBackground
+        if #available(iOS 13, *) {
+            tableView.backgroundColor = .tertiarySystemGroupedBackground
+        }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         options.count
     }
     
@@ -26,16 +27,20 @@ class SelectController : UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FormCell
         cell.textLabel?.text = options[indexPath.row]
         cell.appearance()
         
-        cell.accessoryType = indexPath.row == selectedOption ? .checkmark : .none
+        cell.accessoryType = isSelected(indexPath) ? .checkmark : .none
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func isSelected(_ indexPath:IndexPath) -> Bool {
+        indexPath.row == selectedOption || (selectedOption == nil && options[indexPath.row] == "--")
+    }
+    
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedOption = indexPath.row
         
         delegate?.selectController(onOptionSelected: selectedOption)

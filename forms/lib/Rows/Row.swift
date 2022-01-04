@@ -2,12 +2,6 @@ import Foundation
 import UIKit
 import RevoValidation
 
-protocol CanBeBinded {
-    var value:Any { get }
-}
-
-
-
 public class Row {
  
     var indentifier = "cell"
@@ -21,8 +15,8 @@ public class Row {
     
     var bindObject:NSObject?
     var bindKeyPath:String?
-    
-    init(_ title:String, description:String? = nil){
+
+    public init(_ title:String, description:String? = nil){
         self.title = title
         self.description = description
     }
@@ -32,18 +26,18 @@ public class Row {
     /**
         The keypath must be visible in objc to be able to get and set the value as it uses the `setValue(keypath)` and `getValue(keyPath)`
      */
-    func bind(_ object:NSObject, keyPath:String) -> Self {
+    public func bind(_ object:NSObject, keyPath:String) -> Self {
         bindObject  = object
         bindKeyPath = keyPath
         return self
     }
-    
-    func getBindingValue() -> Any? {
+
+    public func getBindingValue() -> Any? {
         guard let keyPath = bindKeyPath else { return nil }
         return bindObject?.value(forKey: keyPath)
     }
-    
-    func updateBinding(){
+
+    public func updateBinding(){
         
     }
     
@@ -59,5 +53,10 @@ public class Row {
     
     func onDeselected(_ viewController:UIViewController) -> Bool {
         false
+    }
+    
+    func appearance(_ appearance:FormAppearance) -> Self {
+        self.appearance = appearance
+        return self
     }
 }

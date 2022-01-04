@@ -1,16 +1,16 @@
 import UIKit
 
-class SelectRow : Row, SelectControllerDelegate {
+public class SelectRow : Row, SelectControllerDelegate {
     
     var selectedOption:Int = 0
     let options:[String]
     weak var cell:UITableViewCell?
-    
-    var value: Int {
+
+    public var value: Int {
         selectedOption
     }
-    
-    init(_ title:String, description:String? = nil, options:[String], value:Int = 0){
+
+    public init(_ title:String, description:String? = nil, options:[String], value:Int = 0){
         self.options = options
         self.selectedOption = value
         super.init(title, description: description)
@@ -28,7 +28,6 @@ class SelectRow : Row, SelectControllerDelegate {
     }
     
     override func onSelected(_ viewController:UIViewController) -> Bool {
-        
         let vc              = SelectController(style: .grouped)
         vc.options          = options
         vc.selectedOption   = selectedOption
@@ -43,13 +42,13 @@ class SelectRow : Row, SelectControllerDelegate {
         return false
     }
     
-    func selectController(onOptionSelected option: Int) {
-        selectedOption = option
+    func selectController(onOptionSelected option: Int?) {
+        selectedOption = option ?? 0
         cell?.detailTextLabel?.text = options[selectedOption]
     }
     
     //MARK: Binding
-    override func updateBinding() {
+    public override func updateBinding() {
         if let object = bindObject, let keyPath = bindKeyPath {
             object.setValue(value, forKey: keyPath)
         }
