@@ -43,12 +43,12 @@ public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControl
     
     override func onSelected(_ viewController:UIViewController) -> Bool {
         let vc              = SelectController(style: .grouped)
-        vc.options          = options.allCases.map { "\($0.rawValue)".ucFirst() }
+        vc.options          = options.allCases.map { optionString($0) }
         if allowsNull {
             vc.options.append("--")
         }
         if let option = selectedOption {
-            vc.selectedOption = vc.options.firstIndex(of: "\(option.rawValue)".ucFirst())
+            vc.selectedOption = vc.options.firstIndex(of: optionString(option))
         }
         vc.title            = title
         vc.delegate         = self
@@ -72,7 +72,7 @@ public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControl
     
     func showSelectedOptionTo(_ cell:UITableViewCell?){
         if let option = selectedOption {
-            cell?.detailTextLabel?.text = "\(option.rawValue)".ucFirst()
+            cell?.detailTextLabel?.text = optionString(option)
         } else {
             cell?.detailTextLabel?.text = "--"
         }
@@ -83,6 +83,13 @@ public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControl
         if let object = bindObject, let keyPath = bindKeyPath {
             object.setValue(value, forKey: keyPath)
         }
+    }
+    
+    func optionString(_ option:T) -> String {
+        if option is CustomStringConvertible {
+            return "\(option)"
+        }
+        return "\(option.rawValue)".ucFirst()
     }
     
 }

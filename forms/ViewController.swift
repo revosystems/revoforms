@@ -20,10 +20,22 @@ class ViewController: FormViewController {
         @objc var option:Int = 1
         @objc var dictOption:Int = 5
         @objc var color:String = "blue"
+        @objc var food:Int = 2
     }
     
     enum Colors: String, CaseIterable {
         case red, blue, yellow, black, white
+    }
+    
+    enum Food: Int, CaseIterable, CustomStringConvertible {
+        case potatoes, tomato, macarroni
+        var description: String {
+            switch self {
+            case .potatoes : return "Potatoes"
+            case .tomato : return "Tomato"
+            case .macarroni : return "Macarroni"
+            }
+        }
     }
     
     
@@ -60,21 +72,23 @@ class ViewController: FormViewController {
                 SelectDictRow("Select dict", options:[0 : "Hola", 1: "Selected", 2 : "Patata", 3: "Nowhere"]).bind(myModel, keyPath: "dictOption").allowsNull()
             ]),
             Section("Fourth Section", rows:[
-                SelectEnumRow("Color", options: Colors.self).bind(myModel, keyPath: "color")
+                SelectEnumRow("Color", options: Colors.self).bind(myModel, keyPath: "color"),
+                SelectEnumRow("Food", options: Food.self).bind(myModel, keyPath: "food")
             ])
         ]
     }
 
     @IBAction func onUpdateModelPressed(_ sender: Any) {
         updateBindings()
-        print(myModel.simpleText)
-        print(myModel.isOn)
-        print(myModel.isOn2)
-        print(myModel.step)
-        print(myModel.step2)
-        print(myModel.option)
-        print(myModel.dictOption)
-        print(myModel.color)
+        print("Simple Text:" + "\(myModel.simpleText)")
+        print("IsOn"         + "\(myModel.isOn)")
+        print("IsOn2"        + "\(myModel.isOn2)")
+        print("Step:"        + "\(myModel.step)")
+        print("Step 2:"      + "\(myModel.step2)")
+        print("Option:"      + "\(myModel.option)")
+        print("DicOption:"   + "\(myModel.dictOption)")
+        print("Color:"       + "\(myModel.color)")
+        print("Food:"        + "\(myModel.food)")
     }
     
 }
