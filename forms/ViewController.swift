@@ -19,6 +19,11 @@ class ViewController: FormViewController {
         @objc var step2:NSNumber = NSNumber(value: 5)
         @objc var option:Int = 1
         @objc var dictOption:Int = 5
+        @objc var color:String = "blue"
+    }
+    
+    enum Colors: String, CaseIterable {
+        case red, blue, yellow, black, white
     }
     
     
@@ -53,6 +58,9 @@ class ViewController: FormViewController {
                 SelectRow("Color", options:["blue", "red", "yellow"]).bind(myModel, keyPath: "option"),
                 TextAreaRow("Notes", description: "Here goes the notes"),
                 SelectDictRow("Select dict", options:[0 : "Hola", 1: "Selected", 2 : "Patata", 3: "Nowhere"]).bind(myModel, keyPath: "dictOption").allowsNull()
+            ]),
+            Section("Fourth Section", rows:[
+                SelectEnumRow("Color", options: Colors.self).bind(myModel, keyPath: "color")
             ])
         ]
     }
@@ -66,6 +74,7 @@ class ViewController: FormViewController {
         print(myModel.step2)
         print(myModel.option)
         print(myModel.dictOption)
+        print(myModel.color)
     }
     
 }
