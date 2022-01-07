@@ -1,21 +1,21 @@
 import UIKit
 
-public class SelectDictRow : Row, SelectControllerDelegate {
+public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegate {
     
-    var selectedOption:AnyHashable? = nil
-    let options:[AnyHashable?:String]
+    var selectedOption:T? = nil
+    let options:[T?:String]
     weak var cell:UITableViewCell?
     var allowsNull:Bool = false
 
-    public var value: AnyHashable? {
+    public var value: T? {
         selectedOption
     }
 
-    var keysSorted : [AnyHashable?] {
-        Array(options.keys)
+    var keysSorted : [T?] {
+        return (Array(options.keys) as! [T]).sorted()
     }
 
-    public init(_ title:String, description:String? = nil, options:[AnyHashable:String], value:AnyHashable? = nil){
+    public init(_ title:String, description:String? = nil, options:[T:String], value:T? = nil){
         self.options = options
         self.selectedOption = value
         super.init(title, description: description)
@@ -23,7 +23,7 @@ public class SelectDictRow : Row, SelectControllerDelegate {
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        selectedOption = getBindingValue() as? Int ?? 0
+        selectedOption = getBindingValue() as? T ?? nil
         return self
     }
 
