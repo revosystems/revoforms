@@ -12,7 +12,7 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
     }
 
     var keysSorted : [T?] {
-        return (Array(options.keys) as! [T]).sorted()
+        (Array(options.keys) as! [T]).sorted()
     }
 
     public init(_ title:String, description:String? = nil, options:[T:String], value:T? = nil){
