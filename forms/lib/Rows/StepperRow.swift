@@ -15,7 +15,17 @@ public class StepperRow : Row {
         component = createComponent()
         component.value = Double(value)
     }
-    
+
+    public func minValue(_ min:Double) -> Self {
+        component.minimumValue = min
+        return self
+    }
+
+    public func maxValue(_ max:Double) -> Self {
+        component.maximumValue = max
+        return self
+    }
+
     override open func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath) as! FormCell
 
