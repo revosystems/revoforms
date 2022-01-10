@@ -31,6 +31,12 @@ public class TextAreaRow : Row {
         return cell
     }
     
+    public override func bind(_ object: NSObject, keyPath: String) -> Self {
+        super.bind(object, keyPath: keyPath)
+        component.text = getBindingValue() as? String
+        return self
+    }
+    
     func height(_ height:Int) -> Self{
         cellHeight = height
         return self
@@ -54,7 +60,6 @@ public class TextAreaRow : Row {
     func addComponent(cell:FormCell){
         cell.addSubview(component)
 
-        component.text = "Here goes some text"
         
         //tl.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = false
         
@@ -64,7 +69,7 @@ public class TextAreaRow : Row {
         component.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20).isActive = true
         
         component.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true
-        component.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 4).isActive = true
+        component.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -4).isActive = true
         
         
         cell.heightAnchor.constraint(equalToConstant: 44).isActive = false
