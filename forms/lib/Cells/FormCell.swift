@@ -5,6 +5,7 @@ public class FormCell : UITableViewCell {
         
     var row:Row?
     var component:UIView?
+    var extraViews:[UIView] = []
         
     // MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,11 +28,17 @@ public class FormCell : UITableViewCell {
         appearance()
         addDescription()
 
+        clearRowViews()
+
+        return self
+    }
+    
+    func clearRowViews(){
         selectionStyle   = .none
         accessoryType    = .none
         component?.removeFromSuperview()
-
-        return self
+        extraViews.each { $0.removeFromSuperview() }
+        extraViews = []
     }
     
     func addDescription(){
