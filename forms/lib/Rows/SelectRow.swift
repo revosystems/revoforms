@@ -16,7 +16,7 @@ public class SelectRow : Row, SelectControllerDelegate {
         super.init(title, description: description)
     }
     
-    override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    override open func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
         

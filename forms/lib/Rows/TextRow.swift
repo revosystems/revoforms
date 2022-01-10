@@ -25,7 +25,7 @@ public class TextRow : Row {
         return self
     }
 
-    override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    override open func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         addComponent(cell: cell)

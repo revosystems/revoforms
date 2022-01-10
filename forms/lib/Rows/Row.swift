@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 import RevoValidation
 
-public class Row {
+open class Row {
  
-    var indentifier = "cell"
+    public var identifier = "cell"
     var appearance:FormAppearance?
     
     var title:String
@@ -50,8 +50,8 @@ public class Row {
     }
     
     //MARK: Cell
-    func cell(_ tableView:UITableView, indexPath:IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: indentifier, for: indexPath) as! FormCell
+    open func cell(_ tableView:UITableView, indexPath:IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! FormCell
         return cell.setup(self)
     }
     
