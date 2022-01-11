@@ -18,6 +18,8 @@ open class Row {
     
     var hidden:Bool = false
 
+    private var onPressedCallback:((_ row:Row)->Void)?
+
     public init(_ title:String, description:String? = nil){
         self.title = title
         self.description = description
@@ -55,8 +57,12 @@ open class Row {
         return cell.setup(self)
     }
     
-    func onSelected(_ viewController:UIViewController) -> Bool{
-        false
+    func onSelected(_ viewController:UIViewController) -> Bool {
+        if let callback = onPressedCallback {
+            callback(self)
+            return true
+        }
+        return false
     }
     
     func onDeselected(_ viewController:UIViewController) -> Bool {
@@ -65,6 +71,12 @@ open class Row {
     
     func appearance(_ appearance:FormAppearance) -> Self {
         self.appearance = appearance
+        return self
+    }
+
+    // MARK-: Callbacks
+    public func onPressed(_ callback:@escaping(_ row:Row) -> Void) -> Self {
+        onPressedCallback = callback
         return self
     }
 }

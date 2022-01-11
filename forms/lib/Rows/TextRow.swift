@@ -25,6 +25,11 @@ public class TextRow : Row {
         return self
     }
 
+    public func keyboardType(_ type:UIKeyboardType) -> Self {
+        component.keyboardType = type
+        return self
+    }
+
     override open func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         
