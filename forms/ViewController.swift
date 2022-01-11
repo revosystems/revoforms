@@ -73,7 +73,8 @@ class ViewController: FormViewController {
             ]),
             Section("Fourth Section", rows:[
                 SelectEnumRow("Color", options: Colors.self).bind(myModel, keyPath: "color"),
-                SelectEnumRow("Food", options: Food.self).bind(myModel, keyPath: "food")
+                SelectEnumRow("Food", options: Food.self).bind(myModel, keyPath: "food"),
+                ControllerRow("Controller", vc:SecondViewController(style: .grouped))
             ])
         ]
     }
