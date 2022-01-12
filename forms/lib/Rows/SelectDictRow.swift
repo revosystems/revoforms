@@ -7,6 +7,8 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
     weak var cell:UITableViewCell?
     var allowsNull:Bool = false
 
+    private var onOptionSelectedCallback:((_ row:Row, T?)->Void)?
+
     public var value: T? {
         selectedOption
     }
@@ -15,10 +17,11 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
         (Array(options.keys) as! [T]).sorted()
     }
 
-    public init(_ title:String, description:String? = nil, options:[T:String], value:T? = nil){
+    public init(_ title:String, description:String? = nil, detail:String? = nil, options:[T:String], value:T? = nil){
         self.options = options
         self.selectedOption = value
         super.init(title, description: description)
+        self.detail = detail
     }
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
@@ -64,13 +67,19 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
     func selectController(onOptionSelected option: Int?) {
         if let option = option, keysSorted.count > option {
             selectedOption = keysSorted[option]
+            onOptionSelectedCallback?(self, keysSorted[option])
         } else {
             selectedOption = nil
+            onOptionSelectedCallback?(self, nil)
         }
         showSelectedOptionTo(cell)
     }
 
     func showSelectedOptionTo(_ cell:UITableViewCell?){
+        if let detail = detail {
+            cell?.detailTextLabel?.text = detail
+            return
+        }
         if let option = selectedOption, let text = options[option] {
             cell?.detailTextLabel?.text = text
         } else {
@@ -83,5 +92,11 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
         if let object = bindObject, let keyPath = bindKeyPath {
             object.setValue(value, forKey: keyPath)
         }
+    }
+
+    // MARK-: Callbacks
+    public func onOptionSelected(_ callback:@escaping(_ row:Row, _ option:T?) -> Void) -> Self {
+        onOptionSelectedCallback = callback
+        return self
     }
 }

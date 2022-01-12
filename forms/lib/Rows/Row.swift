@@ -5,11 +5,11 @@ import RevoValidation
 open class Row {
  
     public var identifier = "cell"
-    var appearance:FormAppearance?
+    public var appearance:FormAppearance?
     
-    var title:String
-    var description:String?
-    var detail:String?
+    public var title:String
+    public var description:String?
+    public var detail:String?
     
     var rules:Rules?
     
@@ -29,7 +29,11 @@ open class Row {
         self.hidden = hidden
         return self;
     }
-    
+
+    public func appearance(_ appearance:FormAppearance?) -> Self {
+        self.appearance = appearance
+        return self
+    }
 
     //MARK: Bindings
     /**
