@@ -16,6 +16,7 @@
 		BBE99DBE278355D200726E21 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE99DBD278355D200726E21 /* InfoRow.swift */; };
 		EA1D93CA2784633800786B8A /* SelectDictRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1D93C92784633800786B8A /* SelectDictRow.swift */; };
 		EACEC523278597C600B1FF01 /* SelectEnumRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEC522278597C600B1FF01 /* SelectEnumRow.swift */; };
+		EAD43CF8278ED06D009C5E06 /* NumberRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD43CF7278ED06D009C5E06 /* NumberRow.swift */; };
 		EADAD9BF278D76F6004633D6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADAD9BE278D76F6004633D6 /* SecondViewController.swift */; };
 		EADAD9C1278D7730004633D6 /* ControllerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADAD9C0278D7730004633D6 /* ControllerRow.swift */; };
 		EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7438227830F8500BB58E4 /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		E4E1965B3D51FA88F7C26602 /* Pods-formsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formsTests.release.xcconfig"; path = "Target Support Files/Pods-formsTests/Pods-formsTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1D93C92784633800786B8A /* SelectDictRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDictRow.swift; sourceTree = "<group>"; };
 		EACEC522278597C600B1FF01 /* SelectEnumRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEnumRow.swift; sourceTree = "<group>"; };
+		EAD43CF7278ED06D009C5E06 /* NumberRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberRow.swift; sourceTree = "<group>"; };
 		EADAD9BE278D76F6004633D6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		EADAD9C0278D7730004633D6 /* ControllerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerRow.swift; sourceTree = "<group>"; };
 		EAE7437F27830F8500BB58E4 /* forms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +240,7 @@
 				EA1D93C92784633800786B8A /* SelectDictRow.swift */,
 				EACEC522278597C600B1FF01 /* SelectEnumRow.swift */,
 				EADAD9C0278D7730004633D6 /* ControllerRow.swift */,
+				EAD43CF7278ED06D009C5E06 /* NumberRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				EAE743BC2783111200BB58E4 /* TextRow.swift in Sources */,
 				BBE99DBA278345CA00726E21 /* SelectController.swift in Sources */,
 				EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */,
+				EAD43CF8278ED06D009C5E06 /* NumberRow.swift in Sources */,
 				BBE99DBE278355D200726E21 /* InfoRow.swift in Sources */,
 				EAE743B927830FB600BB58E4 /* Row.swift in Sources */,
 				BBE99DB72783447700726E21 /* SelectRow.swift in Sources */,

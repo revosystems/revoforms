@@ -13,6 +13,7 @@ class ViewController: FormViewController {
         
     class Model : NSObject {
         @objc var simpleText:String = "Simple Text"
+        @objc var number:Double = 10.2
         @objc var isOn:Bool = true
         @objc var isOn2:NSNumber = NSNumber(value:1)
         @objc var step:Int = 4
@@ -57,7 +58,8 @@ class ViewController: FormViewController {
         self.sections = [
             Section(rows:[
                 InfoRow("Info Row", detail: "Here goes the info"),
-                TextRow("Text Row", placeholder: "Enter the text", value: "My text").validation("required|length:3").bind(myModel, keyPath: "simpleText")
+                TextRow("Text Row", placeholder: "Enter the text", value: "My text").validation("required|length:3").bind(myModel, keyPath: "simpleText"),
+                NumberRow("Number Row", placeholder: "value", value:2).validation("required|min:3").bind(myModel, keyPath: "number")
             ]),
             Section("Second Section", rows:[
                 SwitchRow("Active", description:"A nice switch").bind(myModel, keyPath: "isOn"),
@@ -82,6 +84,7 @@ class ViewController: FormViewController {
     @IBAction func onUpdateModelPressed(_ sender: Any) {
         updateBindings()
         print("Simple Text:" + "\(myModel.simpleText)")
+        print("Number:"      + "\(myModel.number)")
         print("IsOn"         + "\(myModel.isOn)")
         print("IsOn2"        + "\(myModel.isOn2)")
         print("Step:"        + "\(myModel.step)")
