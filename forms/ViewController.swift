@@ -13,6 +13,7 @@ class ViewController: FormViewController {
         
     class Model : NSObject {
         @objc var simpleText:String = "Simple Text"
+        @objc var innerText:String = "Inner text"
         @objc var number:Double = 10.2
         @objc var isOn:Bool = true
         @objc var isOn2:NSNumber = NSNumber(value:1)
@@ -77,6 +78,13 @@ class ViewController: FormViewController {
                 SelectEnumRow("Color", options: Colors.self).bind(myModel, keyPath: "color"),
                 SelectEnumRow("Food", options: Food.self).bind(myModel, keyPath: "food"),
                 ControllerRow("Controller", vc:SecondViewController(style: .grouped))
+            ]),
+            Section("Fifth", rows:[
+                InnerSectionsRow("Subsection", sections:[
+                    Section("", rows:[
+                        TextRow("a text").bind(myModel, keyPath: "innerText")
+                    ])
+                ])
             ])
         ]
     }
@@ -93,6 +101,7 @@ class ViewController: FormViewController {
         print("DicOption:"   + "\(myModel.dictOption)")
         print("Color:"       + "\(myModel.color)")
         print("Food:"        + "\(myModel.food)")
+        print("InnerText:"   + "\(myModel.innerText)")
     }
     
 }
