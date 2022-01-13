@@ -50,6 +50,7 @@ public class NumberRow : Row {
             component.rightView?.backgroundColor = .red
             component.rightView?.circle()
             validation = Validation(component, rules)
+            textFieldDelegate.validation = validation
         }
         return self
     }
@@ -97,7 +98,6 @@ public class NumberRow : Row {
             object.setValue(value, forKey: keyPath)
         }
     }
-   
     
 }
 
@@ -106,6 +106,7 @@ class TextToNumber : NSObject, UITextFieldDelegate {
     
     var decimals:Int = 2
     var decimalSeparator = "."
+    var validation:Validation?
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectAll(nil)
@@ -114,16 +115,16 @@ class TextToNumber : NSObject, UITextFieldDelegate {
     //MARK: TextView Delegate
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        guard string.first?.isNumber ?? true else { return false }
+        //guard string.first?.isNumber ?? true else { return false }
         
         
         let currentValue        = Double(((textField.text ?? "") + string).replace(decimalSeparator, "")) ?? 0
-        //let format            = String(format: "%%.%i", decimals)
+        let format              = String(format: "%%.%if", decimals)
         let minorUnitsPerMajor  = pow(10, Double(decimals))
-        //let newString           = String(format:format, currentValue/minorUnitsPerMajor)
-        let newString           = String(format:"%.2f", currentValue/minorUnitsPerMajor)
+        let newString           = String(format:format, currentValue/minorUnitsPerMajor)
+        //let newString         = String(format:"%.2f", currentValue/minorUnitsPerMajor)
         textField.text          = newString
-        
+        validation?.validate()
 //        [super didChange];
         
         return false
