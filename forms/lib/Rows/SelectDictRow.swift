@@ -26,7 +26,7 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        selectedOption = getBindingValue() as? T ?? nil
+        refreshFromBinding()
         return self
     }
 
@@ -43,6 +43,11 @@ public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegat
         
         self.cell = cell
         return cell
+    }
+    
+    public override func refreshFromBinding() {
+        selectedOption = getBindingValue() as? T ?? nil
+        showSelectedOptionTo(cell)
     }
     
     override func onSelected(_ viewController:UIViewController) -> Bool {

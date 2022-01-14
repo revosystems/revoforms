@@ -23,6 +23,8 @@ class ViewController: FormViewController {
         @objc var dictOption:Int = 5
         @objc var color:String = "blue"
         @objc var food:Int = 2
+        
+        @objc var multipleSelect:[Int] = [0]
     }
     
     enum Colors: String, CaseIterable {
@@ -85,23 +87,29 @@ class ViewController: FormViewController {
                         TextRow("a text").bind(myModel, keyPath: "innerText")
                     ])
                 ])
-            ])
+            ]),
+            MultipleSelectSection("Multiple select", options:[
+                0 : "Hola",
+                1 : "Que",
+                2 : "Tal"
+            ]).bind(myModel, keyPath: "multipleSelect")
         ]
     }
 
     @IBAction func onUpdateModelPressed(_ sender: Any) {
         updateBindings()
-        print("Simple Text:" + "\(myModel.simpleText)")
-        print("Number:"      + "\(myModel.number)")
-        print("IsOn"         + "\(myModel.isOn)")
-        print("IsOn2"        + "\(myModel.isOn2)")
-        print("Step:"        + "\(myModel.step)")
-        print("Step 2:"      + "\(myModel.step2)")
-        print("Option:"      + "\(myModel.option)")
-        print("DicOption:"   + "\(myModel.dictOption)")
-        print("Color:"       + "\(myModel.color)")
-        print("Food:"        + "\(myModel.food)")
-        print("InnerText:"   + "\(myModel.innerText)")
+        print("Simple Text:"    + "\(myModel.simpleText)")
+        print("Number:"         + "\(myModel.number)")
+        print("IsOn"            + "\(myModel.isOn)")
+        print("IsOn2"           + "\(myModel.isOn2)")
+        print("Step:"           + "\(myModel.step)")
+        print("Step 2:"         + "\(myModel.step2)")
+        print("Option:"         + "\(myModel.option)")
+        print("DicOption:"      + "\(myModel.dictOption)")
+        print("Color:"          + "\(myModel.color)")
+        print("Food:"           + "\(myModel.food)")
+        print("InnerText:"      + "\(myModel.innerText)")
+        print("MultipleSelect:" + "\(myModel.multipleSelect)")
     }
     
 }

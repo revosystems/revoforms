@@ -20,9 +20,7 @@ public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControl
     
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        if let rawValue = getBindingValue() as? T.RawValue{
-            selectedOption = T.init(rawValue: rawValue)
-        }
+        refreshFromBinding()
         return self
     }
 
@@ -39,6 +37,13 @@ public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControl
         
         self.cell = cell
         return cell
+    }
+    
+    public override func refreshFromBinding() {
+        if let rawValue = getBindingValue() as? T.RawValue{
+            selectedOption = T.init(rawValue: rawValue)
+        }
+        showSelectedOptionTo(cell)
     }
     
     override func onSelected(_ viewController:UIViewController) -> Bool {

@@ -38,6 +38,7 @@
 		EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C227831CD300BB58E4 /* SwitchRow.swift */; };
 		EAE743C527831DDF00BB58E4 /* UselesSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C427831DDF00BB58E4 /* UselesSelectRow.swift */; };
 		EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C6278321DF00BB58E4 /* StepperRow.swift */; };
+		EAEC55E42791686200E95839 /* MultipleSelectSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC55E32791686200E95839 /* MultipleSelectSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		EAE743C227831CD300BB58E4 /* SwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
 		EAE743C427831DDF00BB58E4 /* UselesSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UselesSelectRow.swift; sourceTree = "<group>"; };
 		EAE743C6278321DF00BB58E4 /* StepperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperRow.swift; sourceTree = "<group>"; };
+		EAEC55E32791686200E95839 /* MultipleSelectSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				EAE7438227830F8500BB58E4 /* AppDelegate.swift */,
 				EAE7438427830F8500BB58E4 /* SceneDelegate.swift */,
 				EAE7438627830F8500BB58E4 /* ViewController.swift */,
+				EADAD9BE278D76F6004633D6 /* SecondViewController.swift */,
 				EAE7438827830F8500BB58E4 /* Main.storyboard */,
 				EAE7438B27830F8600BB58E4 /* Assets.xcassets */,
 				EAE7438D27830F8600BB58E4 /* LaunchScreen.storyboard */,
@@ -221,9 +224,9 @@
 				BBE99DB8278345C000726E21 /* Controllers */,
 				EAE743C0278315DD00BB58E4 /* FormAppearance.swift */,
 				EAE743B627830FB100BB58E4 /* Section.swift */,
+				EAEC55E32791686200E95839 /* MultipleSelectSection.swift */,
 				EAE743BD2783122600BB58E4 /* Cells */,
 				EAE743BA2783110700BB58E4 /* Rows */,
-				EADAD9BE278D76F6004633D6 /* SecondViewController.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
 				EACEC523278597C600B1FF01 /* SelectEnumRow.swift in Sources */,
 				EAE743C527831DDF00BB58E4 /* UselesSelectRow.swift in Sources */,
+				EAEC55E42791686200E95839 /* MultipleSelectSection.swift in Sources */,
 				BBE99DBC278348FA00726E21 /* TextAreaRow.swift in Sources */,
 				EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */,
 				EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */,

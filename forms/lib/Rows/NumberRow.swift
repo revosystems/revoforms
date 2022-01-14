@@ -25,7 +25,7 @@ public class NumberRow : Row {
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        component.text = stringValue(getBindingValue() as? Double)
+        refreshFromBinding()
         component.delegate = textFieldDelegate
         return self
     }
@@ -88,6 +88,11 @@ public class NumberRow : Row {
         //let format = str("%%.%luf", decimals)1
         let format = str("%.2f")
         return str(format, "\(value ?? 0)")
+    }
+    
+    
+    public override func refreshFromBinding() {
+        component.text = stringValue(getBindingValue() as? Double)
     }
 
 

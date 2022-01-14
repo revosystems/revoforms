@@ -17,7 +17,7 @@ public class SwitchRow : Row {
 
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        component.isOn = getBindingValue() as? Bool ?? false
+        refreshFromBinding()
         return self
     }
 
@@ -31,6 +31,10 @@ public class SwitchRow : Row {
     func createSwitchView() -> UISwitch {
         let component = UISwitch()
         return component
+    }
+    
+    public override func refreshFromBinding() {
+        component.isOn = getBindingValue() as? Bool ?? false
     }
     
     func addComponent(cell:UITableViewCell){

@@ -21,9 +21,7 @@ open class FormViewController : UITableViewController {
      */
     public func updateBindings(){
         sections.each { section in
-            section.rows.each { row in
-                row.updateBinding()
-            }
+            section.updateBinding()
         }
     }
     

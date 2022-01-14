@@ -31,10 +31,15 @@ public class TextAreaRow : Row {
         return cell
     }
     
+    
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        component.text = getBindingValue() as? String
+        refreshFromBinding()
         return self
+    }
+    
+    public override func refreshFromBinding() {
+        component.text = getBindingValue() as? String
     }
     
     func height(_ height:Int) -> Self{

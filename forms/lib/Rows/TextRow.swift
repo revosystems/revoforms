@@ -22,7 +22,7 @@ public class TextRow : Row {
     @discardableResult
     public override func bind(_ object: NSObject, keyPath: String) -> Self {
         super.bind(object, keyPath: keyPath)
-        component.text = getBindingValue() as? String
+        refreshFromBinding()
         return self
     }
 
@@ -38,6 +38,10 @@ public class TextRow : Row {
         addComponent(cell: cell)
 
         return cell
+    }
+    
+    override open func refreshFromBinding(){
+        component.text = getBindingValue() as? String
     }
     
     @discardableResult
