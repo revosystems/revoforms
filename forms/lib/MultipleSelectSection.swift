@@ -5,7 +5,7 @@ open class MultipleSelectSection<T:Comparable&Hashable> : Section {
     var bindObject:NSObject?
     var bindKeyPath:String?
     
-    init(_ title: String? = nil, options: [T:String]) {
+    public init(_ title: String? = nil, options: [T:String]) {
         let rows = options.map {
             UselesSelectRow($0.value)
         }
@@ -17,12 +17,21 @@ open class MultipleSelectSection<T:Comparable&Hashable> : Section {
     public func bind(_ object:NSObject, keyPath:String) -> Self {
         bindObject  = object
         bindKeyPath = keyPath
+        refreshBindings()
         return self
     }
 
     public func getBindingValue() -> Any? {
         guard let keyPath = bindKeyPath else { return nil }
         return bindObject?.value(forKey: keyPath)
+    }
+    
+    public func refreshBindings(){
+        guard let selected = getBindingValue() as? [T] else { return }
+        
+        rows.eachWithIndex { row, index in
+            (row as! UselesSelectRow).selected = selected.contains(index as! T)
+        }
     }
     
     public override func updateBinding() {

@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-class UselesSelectRow : Row {
+open class UselesSelectRow : Row {
     
     var selected:Bool = false
     
-    override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open override func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = super.cell(tableView, indexPath: indexPath)
         
         cell.accessoryType = selected ? UITableViewCell.AccessoryType.checkmark : UITableViewCell.AccessoryType.none
