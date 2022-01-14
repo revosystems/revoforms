@@ -30,8 +30,7 @@ public class StepperRow : Row {
         let cell = super.cell(tableView, indexPath: indexPath) as! FormCell
 
         addComponent(cell: cell)
-        component.value = getBindingValue() as? Double ?? 0
-        onChanged()
+        refreshFromBinding()
         
         return cell
     }
@@ -52,6 +51,11 @@ public class StepperRow : Row {
         }
         
         return component
+    }
+    
+    public override func refreshFromBinding() {
+        component.value = getBindingValue() as? Double ?? 0
+        onChanged()
     }
     
     func addComponent(cell:UITableViewCell){

@@ -51,7 +51,11 @@ open class Row {
         return bindObject?.value(forKey: keyPath)
     }
 
-    public func updateBinding(){
+    open func updateBinding(){
+        
+    }
+    
+    open func refreshFromBinding(){
         
     }
     

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class Section {
+open class Section {
     
     var title:String? = nil
     var rows:[Row]
@@ -9,5 +9,11 @@ public class Section {
     public init(_ title:String? = nil, rows:[Row] = []) {
         self.title = title
         self.rows = rows
+    }
+    
+    public func updateBinding(){
+        rows.each { row in
+            row.updateBinding()
+        }
     }
 }
