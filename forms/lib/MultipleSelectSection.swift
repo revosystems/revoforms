@@ -4,13 +4,18 @@ open class MultipleSelectSection<T:Comparable&Hashable> : Section {
         
     var bindObject:NSObject?
     var bindKeyPath:String?
+    var options:[T:String]
+    
+    var keysSorted : [T] {
+        (Array(options.keys)).sorted()
+    }
     
     public init(_ title: String? = nil, options: [T:String]) {
-        let rows = options.map {
-            UselesSelectRow($0.value)
+        self.options = options
+        super.init(title, rows: [])
+        rows = keysSorted.map {
+            CheckmarkSelectRow(options[$0]!)
         }
-        
-        super.init(title, rows: rows)
     }
         
     @discardableResult
@@ -30,7 +35,7 @@ open class MultipleSelectSection<T:Comparable&Hashable> : Section {
         guard let selected = getBindingValue() as? [T] else { return }
         
         rows.eachWithIndex { row, index in
-            (row as! UselesSelectRow).selected = selected.contains(index as! T)
+            (row as! CheckmarkSelectRow).selected = selected.contains(keysSorted[index])
         }
     }
     
@@ -38,8 +43,8 @@ open class MultipleSelectSection<T:Comparable&Hashable> : Section {
         guard let object = bindObject, let keyPath = bindKeyPath else { return }
 
         let values = rows.mapWithIndex { row, index in
-            return (row as! UselesSelectRow).selected ? index : -999
-        }.reject { $0 == -999 }
+            return (row as! CheckmarkSelectRow).selected ? keysSorted[index] : nil
+        }.reject { $0 == nil }
         
         object.setValue(values, forKey: keyPath)
     }

@@ -24,7 +24,7 @@ class ViewController: FormViewController {
         @objc var color:String = "blue"
         @objc var food:Int = 2
         
-        @objc var multipleSelect:[Int] = [0]
+        @objc var multipleSelect:[Int] = [10]
     }
     
     enum Colors: String, CaseIterable {
@@ -89,9 +89,9 @@ class ViewController: FormViewController {
                 ])
             ]),
             MultipleSelectSection("Multiple select", options:[
-                0 : "Hola",
-                1 : "Que",
-                2 : "Tal"
+                4 : "Hola",
+                8 : "Que",
+                10 : "Tal"
             ]).bind(myModel, keyPath: "multipleSelect")
         ]
     }
