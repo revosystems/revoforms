@@ -65,7 +65,7 @@ class ViewController: FormViewController {
             Section("Second Section", rows:[
                 SwitchRow("Active", description:"A nice switch").bind(myModel, keyPath: "isOn"),
                 SwitchRow("Active2", description:"A nice switch").bind(myModel, keyPath: "isOn2"),
-                UselesSelectRow("This can be selected"),
+                CheckmarkSelectRow("This can be selected"),
                 StepperRow("This is a long title text that should be cutted in just two lines").bind(myModel, keyPath: "step"),
                 StepperRow("A second stepper").bind(myModel, keyPath: "step2")
             ]),

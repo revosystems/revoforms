@@ -36,7 +36,7 @@
 		EAE743BF2783123000BB58E4 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743BE2783123000BB58E4 /* FormCell.swift */; };
 		EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C0278315DD00BB58E4 /* FormAppearance.swift */; };
 		EAE743C327831CD300BB58E4 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C227831CD300BB58E4 /* SwitchRow.swift */; };
-		EAE743C527831DDF00BB58E4 /* UselesSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C427831DDF00BB58E4 /* UselesSelectRow.swift */; };
+		EAE743C527831DDF00BB58E4 /* CheckmarkSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C427831DDF00BB58E4 /* CheckmarkSelectRow.swift */; };
 		EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE743C6278321DF00BB58E4 /* StepperRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		EAE743BE2783123000BB58E4 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
 		EAE743C0278315DD00BB58E4 /* FormAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAppearance.swift; sourceTree = "<group>"; };
 		EAE743C227831CD300BB58E4 /* SwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
-		EAE743C427831DDF00BB58E4 /* UselesSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UselesSelectRow.swift; sourceTree = "<group>"; };
+		EAE743C427831DDF00BB58E4 /* CheckmarkSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkSelectRow.swift; sourceTree = "<group>"; };
 		EAE743C6278321DF00BB58E4 /* StepperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,7 +234,7 @@
 				EAE743B827830FB600BB58E4 /* Row.swift */,
 				EAE743BB2783111200BB58E4 /* TextRow.swift */,
 				EAE743C227831CD300BB58E4 /* SwitchRow.swift */,
-				EAE743C427831DDF00BB58E4 /* UselesSelectRow.swift */,
+				EAE743C427831DDF00BB58E4 /* CheckmarkSelectRow.swift */,
 				EAE743C6278321DF00BB58E4 /* StepperRow.swift */,
 				BBE99DB62783447700726E21 /* SelectRow.swift */,
 				BBE99DBB278348FA00726E21 /* TextAreaRow.swift */,
@@ -503,7 +503,7 @@
 				EAE743C7278321DF00BB58E4 /* StepperRow.swift in Sources */,
 				EAE7438727830F8500BB58E4 /* ViewController.swift in Sources */,
 				EACEC523278597C600B1FF01 /* SelectEnumRow.swift in Sources */,
-				EAE743C527831DDF00BB58E4 /* UselesSelectRow.swift in Sources */,
+				EAE743C527831DDF00BB58E4 /* CheckmarkSelectRow.swift in Sources */,
 				BBE99DBC278348FA00726E21 /* TextAreaRow.swift in Sources */,
 				EAE7438327830F8500BB58E4 /* AppDelegate.swift in Sources */,
 				EAE743C1278315DD00BB58E4 /* FormAppearance.swift in Sources */,
