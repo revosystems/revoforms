@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "RevoForms"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.4"
   spec.summary      = "A library to easily create forms"
 
   spec.description  = "A simple library to easily create forms with a fluent syntax"
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   spec.static_framework = true
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source       = { :git => "https://github.com/revosystems/revoforms.git", :tag => "0.0.3" }
+  spec.source       = { :git => "https://github.com/revosystems/revoforms.git", :tag => "0.0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
