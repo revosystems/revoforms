@@ -2,6 +2,7 @@ import UIKit
 
 public class SelectRow : Row, SelectControllerDelegate {
     
+    public override var identifier: String { "selectCell" }
     var selectedOption:Int = 0
     let options:[String]
     weak var cell:UITableViewCell?

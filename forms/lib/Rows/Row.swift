@@ -4,7 +4,7 @@ import RevoValidation
 
 open class Row {
  
-    public var identifier = "cell"
+    public var identifier:String { "cell" }
     public var appearance:FormAppearance?
     
     public var title:String

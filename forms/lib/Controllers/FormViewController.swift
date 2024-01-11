@@ -10,6 +10,7 @@ open class FormViewController : UITableViewController {
     
     open override func viewDidLoad() {
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "cell")
+        tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "selectCell")
         if #available(iOS 13, *) {
             tableView.backgroundColor = .tertiarySystemGroupedBackground
         }
