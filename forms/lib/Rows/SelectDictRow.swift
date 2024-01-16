@@ -2,6 +2,7 @@ import UIKit
 
 public class SelectDictRow<T:Comparable&Hashable> : Row, SelectControllerDelegate {
     
+    public override var identifier: String { "selectCell" }
     var selectedOption:T? = nil
     let options:[T?:String]
     weak var cell:UITableViewCell?

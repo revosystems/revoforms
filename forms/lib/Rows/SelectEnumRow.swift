@@ -2,6 +2,7 @@ import UIKit
 
 public class SelectEnumRow<T:CaseIterable&RawRepresentable> : Row, SelectControllerDelegate {
     
+    public override var identifier: String { "selectCell" }
     var options:T.Type
     var selectedOption:T?
     var allowsNull : Bool = false
