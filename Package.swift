@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "RevoForms",
     platforms: [
-        .iOS(.v11_3)
+        .iOS(.v13)
     ],
     products: [
         .library(
