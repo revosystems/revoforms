@@ -11,7 +11,7 @@ let package = Package(
             name: "RevoForms",
             type: .static,
             targets: ["RevoForms"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/revosystems/RevoValidation.git", .upToNextMinor(from: "0.1.0"))
