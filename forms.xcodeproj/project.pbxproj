@@ -60,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		43767411489E64CB079B88CD /* Pods-formsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formsTests.debug.xcconfig"; path = "Target Support Files/Pods-formsTests/Pods-formsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5581AB752CE642E600D4179A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		601B168C1B0A790D289BB112 /* Pods_forms_formsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_forms_formsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D509D32E4C4F5003CE8A492 /* Pods-forms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-forms.release.xcconfig"; path = "Target Support Files/Pods-forms/Pods-forms.release.xcconfig"; sourceTree = "<group>"; };
 		7DEA5CC9E9653D3D480BFD10 /* Pods_forms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_forms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +167,7 @@
 		EAE7437627830F8500BB58E4 = {
 			isa = PBXGroup;
 			children = (
+				5581AB752CE642E600D4179A /* Package.swift */,
 				EAE7438127830F8500BB58E4 /* forms */,
 				EAE7439827830F8600BB58E4 /* formsTests */,
 				EAE743A227830F8600BB58E4 /* formsUITests */,
