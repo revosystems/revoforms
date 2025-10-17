@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/revosystems/RevoValidation.git", .upToNextMajor(from: "0.1.0"))
+        .package(url: "https://github.com/revosystems/RevoValidation.git", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(
