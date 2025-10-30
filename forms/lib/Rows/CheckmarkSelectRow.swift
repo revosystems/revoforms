@@ -5,6 +5,8 @@ public class CheckmarkSelectRow : Row {
     
     var selected:Bool = false
     
+    public override var identifier: String { "checkmarkCell" }
+    
     public var value: Bool {
         selected
     }

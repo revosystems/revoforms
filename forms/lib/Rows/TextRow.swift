@@ -8,6 +8,8 @@ public class TextRow : Row {
     var component:UITextField!
     var validation:Validation?
 
+    public override var identifier: String { "textCell" }
+    
     public var value: String? {
         component.text
     }

@@ -11,6 +11,8 @@ open class FormViewController : UITableViewController {
     open override func viewDidLoad() {
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "cell")
         tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "selectCell")
+        tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "textCell")
+        tableView.register(FormCell.classForCoder(), forCellReuseIdentifier: "checkmarkCell")
         if #available(iOS 13, *) {
             tableView.backgroundColor = .tertiarySystemGroupedBackground
         }
