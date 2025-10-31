@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "RevoFoundation",
+        "repositoryURL": "https://github.com/revosystems/foundation.git",
+        "state": {
+          "branch": null,
+          "revision": "b4f40362a29cad49f99194e9565ffc3507248306",
+          "version": "0.3.13"
+        }
+      },
+      {
+        "package": "RevoValidation",
+        "repositoryURL": "https://github.com/revosystems/RevoValidation.git",
+        "state": {
+          "branch": null,
+          "revision": "9f60b45425a134b4a84ca721eb7c2956708b1924",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
